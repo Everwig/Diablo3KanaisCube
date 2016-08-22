@@ -1,5 +1,5 @@
 ﻿@using System.Text.RegularExpressions
-@model IEnumerable<WebSite.ViewModels.BaseItemViewModel>
+@model System.Collections.Generic.IEnumerable<WebSite.ViewModels.BaseItemViewModel>
 
 <table class="table table-responsive">
     <tr>
@@ -43,20 +43,8 @@
 
 </table>
 
+
+
 <a id="to-the-top" href="#header-overlay">
     <i class="fa fa-chevron-circle-up"></i>
 </a>
-
-@section scripts{
-    <script>
-        $("input:checkbox").click(function () {
-            localStorage.setItem(this.id, this.checked);
-        });
-        $(document).ready(function() {
-            $("input:checkbox").each(function() {
-                $("#" + this.id).prop("checked", localStorage.getItem(this.id));
-            });
-        });
-        
-    </script>
-}

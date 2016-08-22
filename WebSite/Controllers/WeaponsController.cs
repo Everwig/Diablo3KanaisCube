@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using WebSite.Services;
-using WebSite.ViewModels;
 
 namespace WebSite.Controllers
 {
@@ -13,11 +11,6 @@ namespace WebSite.Controllers
         {
             var model = _weaponsService.GetAllWeapons();
             return View(model);
-        }
-
-        public ActionResult Save(IEnumerable<BaseItemViewModel> weapons)
-        {
-            return RedirectToAction("Index");
         }
     }
 }
