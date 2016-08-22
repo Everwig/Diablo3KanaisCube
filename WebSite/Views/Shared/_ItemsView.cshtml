@@ -1,0 +1,62 @@
+﻿@using System.Text.RegularExpressions
+@model IEnumerable<WebSite.ViewModels.BaseItemViewModel>
+
+<table class="table table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Affix)
+        </th>
+        <th class="td-center">
+            @Html.DisplayNameFor(model => model.IsCubedSeason)
+        </th>
+        <th class="td-center">
+            @Html.DisplayNameFor(model => model.IsCubedNonSeason)
+        </th>
+        <th class="td-center">
+            @Html.DisplayNameFor(model => model.IsStashed)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Affix)
+            </td>
+            <td class="td-center">
+                @Html.CheckBoxFor(modelItem => item.IsCubedSeason, new {id = Regex.Replace(item.ItemName, @"[',\s]", "") + "IsCubedSeason", name = "faszalakúkő"})
+            </td>
+            <td class="td-center">
+                @Html.CheckBoxFor(modelItem => item.IsCubedNonSeason, new {id = Regex.Replace(item.ItemName, @"[',\s]", "") + "IsCubedNonSeason"})
+            </td>
+            <td class="td-center">
+                @Html.CheckBoxFor(modelItem => item.IsStashed, new {id = Regex.Replace(item.ItemName, @"[',\s]", "") + "IsStashed"})
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a id="to-the-top" href="#header-overlay">
+    <i class="fa fa-chevron-circle-up"></i>
+</a>
+
+@section scripts{
+    <script>
+        $("input:checkbox").click(function () {
+            localStorage.setItem(this.id, this.checked);
+        });
+        $(document).ready(function() {
+            $("input:checkbox").each(function() {
+                $("#" + this.id).prop("checked", localStorage.getItem(this.id));
+            });
+        });
+        
+    </script>
+}

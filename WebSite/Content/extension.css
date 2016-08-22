@@ -1,0 +1,44 @@
+﻿#header-overlay
+{
+    position: absolute;
+}
+
+#to-the-top {
+    color: white;
+    font-size: 2.5rem;
+    display: block;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    -ms-opacity: 0.8;
+    opacity: 0.8;
+    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.8);
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.progress {
+    height: 14px;
+    margin-bottom: 10px;
+    position: relative;
+    background-color: #cacaca;
+}
+.progress-bar {
+    line-height: 1.2rem;
+    font-size: 1.2rem;
+    background-color: #696969;
+}
+
+.progress-text {
+    position: absolute;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+.td-center {
+    text-align: center;
+    width: 10rem;
+}
