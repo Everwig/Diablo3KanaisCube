@@ -1,0 +1,73 @@
+﻿@model WebSite.ViewModels.ItemsViewModel
+
+@{
+    ViewBag.Title = "Settings";
+}
+
+<h2>Settings</h2>
+
+<div>
+    <hr/>
+    <fieldset>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.HideCubed)
+            </dt>
+
+            <dd>
+                @Html.CheckBoxFor(model => model.HideCubed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HideCubedNonSeason)
+            </dt>
+
+            <dd>
+                @Html.CheckBoxFor(model => model.HideCubedNonSeason)
+            </dd>
+        </dl>
+    </fieldset>
+    <hr/>
+    <fieldset>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.HideNonSeasonalCheckboxes)
+            </dt>
+
+            <dd>
+                @Html.CheckBoxFor(model => model.HideNonSeasonalCheckboxes)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HideSeasonalCheckboxes)
+            </dt>
+
+            <dd>
+                @Html.CheckBoxFor(model => model.HideSeasonalCheckboxes)
+            </dd>
+        </dl>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SeasonalProgressBar)
+            </dt>
+            <dd>
+                @Html.CheckBoxFor(model => model.SeasonalProgressBar)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NonSeasonalProgressBar)
+            </dt>
+            <dd>
+                @Html.CheckBoxFor(model => model.NonSeasonalProgressBar)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BothProgressBar)
+            </dt>
+            <dd>
+                @Html.CheckBoxFor(model => model.BothProgressBar)
+            </dd>
+        </dl>
+    </fieldset>
+</div>

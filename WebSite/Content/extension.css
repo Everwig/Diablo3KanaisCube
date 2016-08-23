@@ -42,3 +42,13 @@
     text-align: center;
     width: 10rem;
 }
+
+@media (min-width: 1024px) {
+    .dl-horizontal dt {
+        width: 28rem;
+        text-align: left;
+    }
+    .dl-horizontal {
+        margin-left: 3rem;
+    }
+}

@@ -22,7 +22,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr name="@(Regex.Replace(item.ItemName, @"[',\s]", "") + "Row")">
             <td>
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>

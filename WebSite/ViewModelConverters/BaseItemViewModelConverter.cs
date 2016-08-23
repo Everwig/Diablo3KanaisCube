@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using WebSite.Model;
+﻿using WebSite.Model;
 using WebSite.ViewModels;
 
 namespace WebSite.ViewModelConverters

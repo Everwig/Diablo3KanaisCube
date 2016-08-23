@@ -31,5 +31,22 @@ namespace WebSite.Services
         {
             return _items.Armors.Select(_baseItemViewModelConverter.ConvertToViewModel);
         }
+
+        public ItemsViewModel GetAllSettings()
+        {
+            return new ItemsViewModel
+            {
+                Weapons = GetAllWeapons(),
+                Armors = GetAllArmors(),
+                Jewelry = GetAllJewelry(),
+                BothProgressBar = _items.BothProgressBar,
+                HideCubed = _items.HideCubed,
+                HideCubedNonSeason = _items.HideCubedNonSeason,
+                HideNonSeasonalCheckboxes = _items.HideNonSeasonalCheckboxes,
+                HideSeasonalCheckboxes = _items.HideSeasonalCheckboxes,
+                NonSeasonalProgressBar = _items.NonSeasonalProgressBar,
+                SeasonalProgressBar = _items.SeasonalProgressBar
+            };
+        }
     }
 }
