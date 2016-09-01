@@ -10,7 +10,7 @@ namespace WebSite.ViewModels
         public IEnumerable<BaseItemViewModel> Jewelry { get; set; }
         [DisplayName(@"Hide Cubed Item:")]
         public bool HideCubed { get; set; }
-        [DisplayName(@"Hide Cubed Non-Season Item:")]
+        [DisplayName(@"Hide Cubed Non-Seasonal Item:")]
         public bool HideCubedNonSeason { get; set; }
         [DisplayName(@"Hide Non-Seasonal Progress Bar:")]
         public bool NonSeasonalProgressBar { get; set; }

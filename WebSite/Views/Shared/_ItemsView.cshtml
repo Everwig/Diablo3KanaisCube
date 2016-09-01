@@ -22,7 +22,7 @@
 
     @foreach (var item in Model)
     {
-        <tr name="@(Regex.Replace(item.ItemName, @"[',\s]", "") + "Row")">
+        <tr name="@(Regex.Replace(item.ItemName, @"[',\.\s]", "") + "Row")">
             <td>
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>
@@ -30,13 +30,13 @@
                 @Html.DisplayFor(modelItem => item.Affix)
             </td>
             <td class="td-center">
-                @Html.CheckBoxFor(modelItem => item.IsCubedSeason, new {id = Regex.Replace(item.ItemName, @"[',\s]", "") + "IsCubedSeason", name = "faszalakúkő"})
+                @Html.CheckBoxFor(modelItem => item.IsCubedSeason, new {id = Regex.Replace(item.ItemName, @"[',\.\s]", "") + "IsCubedSeason", name = "faszalakúkő"})
             </td>
             <td class="td-center">
-                @Html.CheckBoxFor(modelItem => item.IsCubedNonSeason, new {id = Regex.Replace(item.ItemName, @"[',\s]", "") + "IsCubedNonSeason"})
+                @Html.CheckBoxFor(modelItem => item.IsCubedNonSeason, new {id = Regex.Replace(item.ItemName, @"[',\.\s]", "") + "IsCubedNonSeason"})
             </td>
             <td class="td-center">
-                @Html.CheckBoxFor(modelItem => item.IsStashed, new {id = Regex.Replace(item.ItemName, @"[',\s]", "") + "IsStashed"})
+                @Html.CheckBoxFor(modelItem => item.IsStashed, new {id = Regex.Replace(item.ItemName, @"[',\.\s]", "") + "IsStashed"})
             </td>
         </tr>
     }

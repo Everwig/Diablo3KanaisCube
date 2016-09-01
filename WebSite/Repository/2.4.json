@@ -1699,13 +1699,6 @@
       "isStashed": false
     },
     {
-      "itemName": "Cape of the Dark Night",
-      "affix": "Automatically drop Caltrops when you are hit. This effect may only occur once every 6 seconds.",
-      "isCubedSeason": false,
-      "isCubedNonSeason": false,
-      "isStashed": false
-    },
-    {
       "itemName": "Carnevil",
       "affix": "Your Fetishes shoot a Poison Dart every time you do.",
       "isCubedSeason": false,

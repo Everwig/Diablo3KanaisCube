@@ -43,6 +43,42 @@
     width: 10rem;
 }
 
+.progress-bar-text {
+    position: absolute;
+    top: 6.6rem;
+}
+
+.progress-bar-text p {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.export, .import {
+    width: 100%;
+    max-width: 100%;
+    height: 20rem;
+    margin-top: 2rem;
+}
+
+.export {
+    display: none;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover, a:active, a:visited, a:link {
+    text-decoration: none;
+    width: 100%;
+}
+
+@media (min-width: 400px) {
+    .progress-bar-container {
+        padding-left: 11rem;
+    }
+}
+
 @media (min-width: 1024px) {
     .dl-horizontal dt {
         width: 28rem;
@@ -50,5 +86,10 @@
     }
     .dl-horizontal {
         margin-left: 3rem;
+    }
+
+    .progress-bar-container {
+        padding-left: 11rem;
+        margin-bottom: 2rem;
     }
 }

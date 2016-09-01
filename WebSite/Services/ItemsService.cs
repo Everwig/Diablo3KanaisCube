@@ -13,7 +13,7 @@ namespace WebSite.Services
         private readonly BaseItemViewModelConverter _baseItemViewModelConverter = new BaseItemViewModelConverter();
         public ItemsService()
         {
-            _items = new JsonDeserializer().Deserializer();
+            _items = new Deserializer().JsonDeserializer();
         }
 
         public IEnumerable<BaseItemViewModel> GetAllWeapons()

@@ -1,7 +1,8 @@
 ﻿$("input:checkbox").click(function () {
     localStorage.setItem(this.id, this.checked);
     getEveryExtractedItem();
-    hideTheBars();
+    hideSeasonalProgressBar();
+    hideNonSeasonalProgressBar();
     hideTheCheckBoxes();
     if (this.id.indexOf("Stashed") === -1) {
         hideRows(getNameFromId(this.id));
@@ -12,13 +13,15 @@ $(document).ready(function () {
     $("input:checkbox").each(function () {
         if (localStorage.getItem(this.id) === "true") {
             $("#" + this.id).prop("checked", localStorage.getItem(this.id));
+            console.log(this.id);
             if (this.id.indexOf("Stashed") === -1) {
                 hideRows(getNameFromId(this.id));
             }
         }
     });
     getEveryExtractedItem();
-    hideTheBars();
+    hideSeasonalProgressBar();
+    hideNonSeasonalProgressBar();
     hideTheCheckBoxes();
 });
 
@@ -27,11 +30,11 @@ function updateProgressBar(seasonal, nonseasonal) {
     $.getJSON("./Repository/2.4.json", function (data) {
         var items = data["Weapons"].length + data["Jewelry"].length + data["Armors"].length;
         $("#seasonal").find(".progress-bar").css("width", (seasonal / items) * 100 + "%");
-        $("#seasonal").find(".progress-text").text(Math.round((seasonal * 100 / items)) + "% Complete");
+        $("#seasonal").find(".progress-text").text(Math.floor((seasonal * 100 / items)) + "% Complete");
         $("#non-seasonal").find(".progress-bar").css("width", (nonseasonal / items) * 100 + "%");
-        $("#non-seasonal").find(".progress-text").text(Math.round((nonseasonal * 100 / items)) + "% Complete");
-        $("#all").find(".progress-bar").css("width", (nonseasonal / items) * 100 + "%");
-        $("#all").find(".progress-text").text(Math.round(((nonseasonal + seasonal) * 100 / items)) + "% Complete");
+        $("#non-seasonal").find(".progress-text").text(Math.floor((nonseasonal * 100 / items)) + "% Complete");
+        $("#all").find(".progress-bar").css("width", (nonseasonal + seasonal) * 100 / (items * 2) + "%");
+        $("#all").find(".progress-text").text(Math.floor(((nonseasonal + seasonal) * 100 / (items * 2))) + "% Complete");
     });
 };
 
@@ -54,46 +57,40 @@ function getEveryExtractedItem() {
     updateProgressBar(seasonal, nonseasonal);
 };
 
-function hideTheBars() {
+function hideSeasonalProgressBar() {
     if (localStorage.getItem("SeasonalProgressBar") === "true") {
         $("#seasonal").css("display", "none");
+        $("#seasonaldisp").css("display", "none");
     } else {
         $("#seasonal").css("display", "block");
-    }
-    if (localStorage.getItem("NonSeasonalProgressBar") === "true") {
-        $("#non-seasonal").css("display", "none");
-    } else {
-        $("#non-seasonal").css("display", "block");
-    }
-    if (localStorage.getItem("BothProgressBar") === "true") {
-        $("#seasonal").css("display", "none");
-        $("#non-seasonal").css("display", "none");
-    } else {
-        $("#seasonal").css("display", "block");
-        $("#non-seasonal").css("display", "block");
+        $("#seasonaldisp").css("display", "block");
     }
 };
 
+function hideNonSeasonalProgressBar() {
+    if (localStorage.getItem("NonSeasonalProgressBar") === "true") {
+        $("#non-seasonal").css("display", "none");
+        $("#non-seasonaldisp").css("display", "none");
+    } else {
+        $("#non-seasonal").css("display", "block");
+        $("#non-seasonaldisp").css("display", "block");
+    }
+}
 function hideTheCheckBoxes() {
     if (localStorage.getItem("HideNonSeasonalCheckboxes") === "true") {
-        $("input[name='item.IsCubedSeason']").css("display", "none");
+        $("td:nth-child(4),th:nth-child(4)").hide();
     } else {
-        $("input[name='item.IsCubedSeason']").css("display", "inline-block");
+        $("td:nth-child(4),th:nth-child(4)").show();
     }
     if (localStorage.getItem("HideSeasonalCheckboxes") === "true") {
-        $("input[name='item.IsCubedNonSeason']").css("display", "none");
+        $("td:nth-child(3),th:nth-child(3)").hide();
     } else {
-        $("input[name='item.IsCubedNonSeason']").css("display", "inline-block");
+        $("td:nth-child(3),th:nth-child(3)").show();
     }
 }
 
 function hideRows(name) {
     if (localStorage.getItem("HideCubed") === "true") {
-        $("tr[name='" + name + "']").css("display", "none");
-    } else {
-        $("tr[name='" + name + "']").css("display", "table-row");
-    }
-    if (localStorage.getItem("HideCubedNonSeason") === "true") {
         $("tr[name='" + name + "']").css("display", "none");
     } else {
         $("tr[name='" + name + "']").css("display", "table-row");

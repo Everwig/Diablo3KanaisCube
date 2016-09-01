@@ -1,16 +1,14 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.Versioning;
 using System.Web.Hosting;
-using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
 using WebSite.Model;
 
 namespace WebSite.Repository
 {
-    public class JsonDeserializer
+    public class Deserializer
     {   
-        public IItems Deserializer()
+        public IItems JsonDeserializer()
         {   
             try
             {

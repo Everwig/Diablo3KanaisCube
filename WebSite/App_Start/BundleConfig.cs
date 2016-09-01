@@ -19,7 +19,9 @@ namespace WebSite
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/items").Include(
-                        "~/Scripts/itemscript-*"));
+                        "~/Scripts/settingsscript-*",
+                        "~/Scripts/exportscript-*",
+                        "~/Scripts/importscript-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
